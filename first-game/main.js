@@ -69,6 +69,22 @@ const enemy = new Sprite({
   },
 });
 
+//Nome disso é closure. Só usei porque é legal
+function timer(n) {
+  let time = n;
+  function decreaseTimer() {
+    if (time > 0) {
+      setTimeout(decreaseTimer, 1000);
+      time--;
+      document.getElementById("timer").innerText = time;
+    }
+  }
+  return decreaseTimer;
+}
+const start = timer(10);
+
+start();
+
 /** Funcao que gera os frames do jogo
  * Ela também controle os limtes da tela
  */
@@ -113,7 +129,6 @@ function animate() {
     player.isAttacking = false;
     enemy.health -= 10;
     document.getElementById("enemyHealth").style.width = `${enemy.health}%`;
-    console.log(enemy.health);
   }
 
   if (
@@ -124,7 +139,7 @@ function animate() {
     enemy.isAttacking
   ) {
     enemy.isAttacking = false;
-    enemy.health -= 10;
+    player.health -= 10;
     document.getElementById("playerHealth").style.width = `${player.health}%`;
   }
 }
@@ -163,7 +178,6 @@ window.addEventListener("keydown", (event) => {
       break;
     case "ArrowDown":
       enemy.attack();
-
       break;
   }
 });
