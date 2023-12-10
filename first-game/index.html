@@ -4,11 +4,78 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Fight</title>
   </head>
   <body>
-    <div id="app"></div>
-    <canvas id="myCanvas"></canvas>
+    <main
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      ">
+      <!-- Container do jogo -->
+      <div style="position: relative; display: inline-block">
+        <!-- Container dos status -->
+        <div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              padding: 20px;
+            ">
+            <!-- Vida do player -->
+            <div
+              style="
+                position: relative;
+                height: 30px;
+                width: 100%;
+                display: flex;
+                justify-content: left;
+              ">
+              <div
+                style="background-color: rgb(130, 36, 29); height: 30px"></div>
+              <div
+                id="playerHealth"
+                style="
+                  position: absolute;
+                  background-color: yellow;
+                  top: 0;
+                  right: 0;
+                  left: 0;
+                  bottom: 0;
+                "></div>
+            </div>
+            <!-- Timer -->
+            <div
+              style="
+                background-color: red;
+                width: 100px;
+                height: 100px;
+                flex-shrink: 0;
+              "></div>
+            <!-- Vida do inimigo -->
+            <div style="position: relative; height: 30px; width: 100%">
+              <div
+                style="background-color: rgb(130, 36, 29); height: 30px"></div>
+              <div
+                id="enemyHealth"
+                style="
+                  position: absolute;
+                  background-color: yellow;
+                  top: 0;
+                  right: 0;
+                  left: 0;
+                  bottom: 0;
+                "></div>
+            </div>
+          </div>
+          <canvas id="myCanvas"></canvas>
+        </div>
+      </div>
+    </main>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
